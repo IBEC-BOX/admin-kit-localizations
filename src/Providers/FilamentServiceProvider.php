@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace VendorName\Skeleton\Providers;
+namespace AdminKit\Localizations\Providers;
 
 use Filament\PluginServiceProvider;
-use VendorName\Skeleton\UI\Filament\Resources\SingleNameResource;
+use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource;
 
 class FilamentServiceProvider extends PluginServiceProvider
 {
-    public static string $name = 'skeleton_without_prefix';
+    public static string $name = 'localizations';
 
     protected array $resources = [
-        SingleNameResource::class,
+        LocalizationResource::class,
     ];
 }

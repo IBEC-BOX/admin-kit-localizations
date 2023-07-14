@@ -2,8 +2,8 @@
 
 return [
     'resource' => [
-        'label' => 'SingleName',
-        'plural_label' => 'Skeleton',
+        'label' => 'Localization',
+        'plural_label' => 'Localizations',
 
         'id' => 'ID',
         'title' => 'Title',

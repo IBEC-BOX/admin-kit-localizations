@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace AdminKit\Localizations\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LocalizationsCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'admin-kit-localizations';
 
     public $description = 'My command';
 

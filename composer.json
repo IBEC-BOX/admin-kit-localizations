@@ -1,17 +1,17 @@
 {
-    "name": ":packagist_name/:package_slug",
-    "description": ":package_description",
+    "name": "ibecsystems/admin-kit-localizations",
+    "description": "Localizations package for Admin Kit",
     "keywords": [
-        ":github_name",
+        "ibec-box",
         "laravel",
-        ":package_slug"
+        "admin-kit-localizations"
     ],
-    "homepage": "https://github.com/:github_name/:package_slug",
+    "homepage": "https://github.com/ibec-box/admin-kit-localizations",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Anastas Mironov",
+            "email": "ast@l80.ru",
             "role": "Developer"
         }
     ],
@@ -40,13 +40,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "AdminKit\\Localizations\\": "src/",
+            "AdminKit\\Localizations\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
+            "AdminKit\\Localizations\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -66,10 +66,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "AdminKit\\Localizations\\LocalizationsServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "Localizations": "AdminKit\\Localizations\\Facades\\Localizations"
             }
         }
     },
