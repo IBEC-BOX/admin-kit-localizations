@@ -6,6 +6,7 @@ use AdminKit\Core\Forms\Components\TranslatableTabs;
 use AdminKit\Localizations\Models\Localization;
 use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource\Pages;
 use Filament\Forms;
+use Filament\Forms\Components\Card;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -15,47 +16,48 @@ class LocalizationResource extends Resource
 {
     protected static ?string $model = Localization::class;
 
-    protected static ?string $recordTitleAttribute = 'title';
+    protected static ?string $modelLabel = 'Локализация';
 
-    protected static ?string $navigationIcon = 'heroicon-o-x';
+    protected static ?string $pluralModelLabel = 'Локализация';
+
+    protected static ?string $navigationGroup = 'Локализация';
+
+    protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form
     {
+        $keys = [];
+        foreach ( config('admin-kit.locales') as $value){
+            $keys[] = Forms\Components\TextInput::make($value)
+                ->label($value)
+                ->required();
+        }
         return $form
-            ->schema([
-                TranslatableTabs::make(fn ($locale) => Forms\Components\Tabs\Tab::make($locale)->schema([
-                    Forms\Components\TextInput::make('title')
-                        ->label(__('admin-kit-localizations::localizations.resource.title'))
-                        ->required($locale === app()->getLocale()),
-                ])),
-            ])
-            ->columns(1);
+            ->schema(array_merge([
+                Card::make([
+                    Forms\Components\TextInput::make('key')
+                        ->label('Ключ')
+                        ->required(),
+                ]),
+            ], $keys));
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')
-                    ->label(__('admin-kit-localizations::localizations.resource.id'))
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('title')
-                    ->label(__('admin-kit-localizations::localizations.resource.title')),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->label(__('admin-kit-localizations::localizations.resource.created_at')),
+                Tables\Columns\TextColumn::make('key')->label('Ключ')->searchable(),
+                Tables\Columns\TextColumn::make('content')->label('Значение'),
             ])
-            ->defaultSort('id', 'desc')
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
-            ])
-            ->defaultSort('id', 'desc');
+            ]);
     }
 
     public static function getRelations(): array
@@ -72,15 +74,5 @@ class LocalizationResource extends Resource
             'create' => Pages\CreateLocalization::route('/create'),
             'edit' => Pages\EditLocalization::route('/{record}/edit'),
         ];
-    }
-
-    public static function getLabel(): ?string
-    {
-        return __('admin-kit-localizations::localizations.resource.label');
-    }
-
-    public static function getPluralLabel(): ?string
-    {
-        return __('admin-kit-localizations::localizations.resource.plural_label');
     }
 }
