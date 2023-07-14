@@ -16,13 +16,14 @@ class SingleNameResource extends Resource
     protected static ?string $model = SingleName::class;
 
     protected static ?string $recordTitleAttribute = 'title';
+
     protected static ?string $navigationIcon = 'heroicon-o-x';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TranslatableTabs::make(fn($locale) => Forms\Components\Tabs\Tab::make($locale)->schema([
+                TranslatableTabs::make(fn ($locale) => Forms\Components\Tabs\Tab::make($locale)->schema([
                     Forms\Components\TextInput::make('title')
                         ->label(__('skeleton::skeleton_without_prefix.resource.title'))
                         ->required($locale === app()->getLocale()),

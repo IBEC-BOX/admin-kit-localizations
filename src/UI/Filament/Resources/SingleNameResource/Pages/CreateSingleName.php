@@ -2,7 +2,6 @@
 
 namespace VendorName\Skeleton\UI\Filament\Resources\SingleNameResource\Pages;
 
-use Filament\Pages\Actions;
 use Filament\Resources\Pages\CreateRecord;
 use VendorName\Skeleton\UI\Filament\Resources\SingleNameResource;
 
