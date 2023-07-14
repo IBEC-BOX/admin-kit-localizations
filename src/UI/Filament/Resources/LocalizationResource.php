@@ -2,7 +2,6 @@
 
 namespace AdminKit\Localizations\UI\Filament\Resources;
 
-use AdminKit\Core\Forms\Components\TranslatableTabs;
 use AdminKit\Localizations\Models\Localization;
 use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource\Pages;
 use Filament\Forms;
@@ -27,11 +26,12 @@ class LocalizationResource extends Resource
     public static function form(Form $form): Form
     {
         $keys = [];
-        foreach ( config('admin-kit.locales') as $value){
+        foreach (config('admin-kit.locales') as $value) {
             $keys[] = Forms\Components\TextInput::make($value)
                 ->label($value)
                 ->required();
         }
+
         return $form
             ->schema(array_merge([
                 Card::make([

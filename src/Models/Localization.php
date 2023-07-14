@@ -13,10 +13,11 @@ class Localization extends AbstractModel
 
     protected $fillable = [
         'key',
-        'content'
+        'content',
     ];
+
     protected array $translatable = [
-        'content'
+        'content',
     ];
 
     protected $table = 'admin_kit_localizations';
