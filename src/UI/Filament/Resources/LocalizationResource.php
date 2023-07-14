@@ -3,13 +3,13 @@
 namespace AdminKit\Localizations\UI\Filament\Resources;
 
 use AdminKit\Core\Forms\Components\TranslatableTabs;
+use AdminKit\Localizations\Models\Localization;
+use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource\Pages;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use AdminKit\Localizations\Models\Localization;
-use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource\Pages;
 
 class LocalizationResource extends Resource
 {

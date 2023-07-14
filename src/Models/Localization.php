@@ -3,9 +3,9 @@
 namespace AdminKit\Localizations\Models;
 
 use AdminKit\Core\Abstracts\Models\AbstractModel;
+use AdminKit\Localizations\Database\Factories\LocalizationFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Translatable\HasTranslations;
-use AdminKit\Localizations\Database\Factories\LocalizationFactory;
 
 class Localization extends AbstractModel
 {

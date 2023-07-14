@@ -2,8 +2,8 @@
 
 namespace AdminKit\Localizations\Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use AdminKit\Localizations\Models\Localization;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class LocalizationFactory extends Factory
 {

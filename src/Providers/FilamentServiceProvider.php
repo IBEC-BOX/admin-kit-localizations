@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace AdminKit\Localizations\Providers;
 
-use Filament\PluginServiceProvider;
 use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource;
+use Filament\PluginServiceProvider;
 
 class FilamentServiceProvider extends PluginServiceProvider
 {

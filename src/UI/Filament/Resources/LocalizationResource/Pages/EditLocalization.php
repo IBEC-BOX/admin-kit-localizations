@@ -2,9 +2,9 @@
 
 namespace AdminKit\Localizations\UI\Filament\Resources\LocalizationResource\Pages;
 
+use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
-use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource;
 
 class EditLocalization extends EditRecord
 {

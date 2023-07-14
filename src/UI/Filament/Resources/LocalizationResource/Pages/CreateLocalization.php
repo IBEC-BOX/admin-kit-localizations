@@ -2,8 +2,8 @@
 
 namespace AdminKit\Localizations\UI\Filament\Resources\LocalizationResource\Pages;
 
-use Filament\Resources\Pages\CreateRecord;
 use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource;
+use Filament\Resources\Pages\CreateRecord;
 
 class CreateLocalization extends CreateRecord
 {

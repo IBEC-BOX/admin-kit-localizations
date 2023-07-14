@@ -2,11 +2,11 @@
 
 namespace AdminKit\Localizations;
 
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 use AdminKit\Localizations\Commands\LocalizationsCommand;
 use AdminKit\Localizations\Providers\FilamentServiceProvider;
 use AdminKit\Localizations\Providers\RouteServiceProvider;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class LocalizationsServiceProvider extends PackageServiceProvider
 {

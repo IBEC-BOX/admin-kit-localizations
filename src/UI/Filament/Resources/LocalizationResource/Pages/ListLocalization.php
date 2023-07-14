@@ -2,9 +2,9 @@
 
 namespace AdminKit\Localizations\UI\Filament\Resources\LocalizationResource\Pages;
 
+use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
-use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource;
 
 class ListLocalization extends ListRecords
 {
