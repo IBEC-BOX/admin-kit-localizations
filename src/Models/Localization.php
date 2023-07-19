@@ -9,22 +9,18 @@ use Spatie\Translatable\HasTranslations;
 
 class Localization extends AbstractModel
 {
-    use HasFactory;
-    use HasTranslations;
-
-    protected $table = 'admin_kit_localizations';
+    use HasFactory, HasTranslations;
 
     protected $fillable = [
-        'title',
+        'key',
+        'content',
     ];
 
-    protected $casts = [
-        //
+    protected array $translatable = [
+        'content',
     ];
 
-    protected $translatable = [
-        'title',
-    ];
+    protected $table = 'admin_kit_localizations';
 
     protected static function newFactory(): LocalizationFactory
     {
