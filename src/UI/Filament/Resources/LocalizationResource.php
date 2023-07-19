@@ -26,20 +26,21 @@ class LocalizationResource extends Resource
     public static function form(Form $form): Form
     {
         $keys = [];
-        foreach (config('admin-kit.locales') as $value) {
-            $keys[] = Forms\Components\TextInput::make($value)
+        foreach ( config('admin-kit.locales') as $value){
+            $keys[] = Forms\Components\TextInput::make("content.$value")
                 ->label($value)
-                ->required();
+                ->required(config('app.locale') === $value);
         }
 
         return $form
-            ->schema(array_merge([
+            ->schema([
                 Card::make([
                     Forms\Components\TextInput::make('key')
                         ->label('Ключ')
                         ->required(),
                 ]),
-            ], $keys));
+                Card::make($keys),
+            ]);
     }
 
     public static function table(Table $table): Table
