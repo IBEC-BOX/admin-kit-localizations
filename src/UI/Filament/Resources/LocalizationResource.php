@@ -26,7 +26,7 @@ class LocalizationResource extends Resource
     public static function form(Form $form): Form
     {
         $keys = [];
-        foreach ( config('admin-kit.locales') as $value){
+        foreach (config('admin-kit.locales') as $value) {
             $keys[] = Forms\Components\TextInput::make("content.$value")
                 ->label($value)
                 ->required(config('app.locale') === $value);
