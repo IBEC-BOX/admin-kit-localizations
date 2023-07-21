@@ -5,6 +5,7 @@ namespace AdminKit\Localizations\UI\Filament\Resources;
 use AdminKit\Core\Facades\AdminKit;
 use AdminKit\Localizations\Models\Localization;
 use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource\Pages;
+use AdminKit\Localizations\UI\Filament\Resources\Widgets\LocalizationFiles;
 use Filament\Forms;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\Card;
@@ -83,6 +84,13 @@ class LocalizationResource extends Resource
             'index' => Pages\ListLocalization::route('/'),
             'create' => Pages\CreateLocalization::route('/create'),
             'edit' => Pages\EditLocalization::route('/{record}/edit'),
+        ];
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            LocalizationFiles::class,
         ];
     }
 }
