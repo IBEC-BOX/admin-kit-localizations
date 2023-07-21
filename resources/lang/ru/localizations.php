@@ -6,6 +6,7 @@ return [
         'plural_label' => 'Локализации',
 
         'id' => 'ID',
+        'key' => 'Ключ',
 
         'created_at' => 'Создан',
         'updated_at' => 'Обновлен',

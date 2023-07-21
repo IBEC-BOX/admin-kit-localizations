@@ -33,7 +33,7 @@ class LocalizationResource extends Resource
             ->schema([
                 Card::make([
                     Forms\Components\TextInput::make('key')
-                        ->label('Ключ')
+                        ->label(__('admin-kit-localizations::localizations.resource.key'))
                         ->required(),
                 ]),
                 Card::make($keys),
@@ -51,7 +51,7 @@ class LocalizationResource extends Resource
 
         return $table
             ->columns([
-                TextColumn::make('key')->label('Ключ')->searchable(),
+                TextColumn::make('key')->label(__('admin-kit-localizations::localizations.resource.key'))->searchable(),
                 ...$columns,
             ])
             ->filters([

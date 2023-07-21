@@ -6,9 +6,10 @@ return [
         'plural_label' => 'Localizations',
 
         'id' => 'ID',
+        'key' => 'Key',
 
-        'created_at' => 'Создан',
-        'updated_at' => 'Обновлен',
+        'created_at' => 'Created At',
+        'updated_at' => 'Updated At',
     ],
 
     'translation_file' => 'translation file',
