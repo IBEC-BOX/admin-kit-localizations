@@ -18,12 +18,6 @@ class LocalizationResource extends Resource
 {
     protected static ?string $model = Localization::class;
 
-    protected static ?string $modelLabel = 'Локализация';
-
-    protected static ?string $pluralModelLabel = 'Локализация';
-
-    protected static ?string $navigationGroup = 'Локализация';
-
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form
@@ -69,6 +63,21 @@ class LocalizationResource extends Resource
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
+    }
+
+    public static function getLabel(): ?string
+    {
+        return __('admin-kit-localizations::localizations.resource.label');
+    }
+
+    public static function getPluralLabel(): ?string
+    {
+        return __('admin-kit-localizations::localizations.resource.plural_label');
+    }
+
+    protected static function getNavigationGroup(): string
+    {
+        return __('admin-kit-localizations::localizations.resource.plural_label');
     }
 
     public static function getRelations(): array

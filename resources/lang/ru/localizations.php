@@ -2,11 +2,10 @@
 
 return [
     'resource' => [
-        'label' => 'Localization',
-        'plural_label' => 'Localizations',
+        'label' => 'Локализация',
+        'plural_label' => 'Локализации',
 
         'id' => 'ID',
-        'title' => 'Title',
 
         'created_at' => 'Создан',
         'updated_at' => 'Обновлен',
