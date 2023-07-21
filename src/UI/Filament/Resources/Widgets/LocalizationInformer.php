@@ -14,7 +14,9 @@ class LocalizationInformer extends TableWidget
     protected int|string|array $columnSpan = 2;
 
     public array $exists = [];
+
     public array $size = [];
+
     public array $count = [];
 
     public function mount()
@@ -23,7 +25,7 @@ class LocalizationInformer extends TableWidget
             $path = lang_path("$locale.json");
             $this->exists[$locale] = File::exists($path);
             if (File::exists($path)) {
-                $this->size[$locale] = number_format(File::size($path) / 1024, 2) . ' Kb';
+                $this->size[$locale] = number_format(File::size($path) / 1024, 2).' Kb';
             }
             if (File::exists($path)) {
                 $count = count(json_decode(File::get($path), true));

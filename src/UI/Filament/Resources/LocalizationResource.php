@@ -7,12 +7,12 @@ use AdminKit\Localizations\Models\Localization;
 use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource\Pages;
 use AdminKit\Localizations\UI\Filament\Resources\Widgets\LocalizationInformer;
 use Filament\Forms;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\Card;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 
 class LocalizationResource extends Resource
 {
@@ -51,7 +51,7 @@ class LocalizationResource extends Resource
         $columns = [];
         foreach (AdminKit::locales() as $locale) {
             $columns[] = Tables\Columns\TextInputColumn::make("content.$locale")
-                ->getStateUsing(fn(Localization $record) => $record->getTranslation('content', $locale))
+                ->getStateUsing(fn (Localization $record) => $record->getTranslation('content', $locale))
                 ->label($locale);
         }
 
