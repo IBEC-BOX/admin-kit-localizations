@@ -30,5 +30,14 @@ class LocalizationsServiceProvider extends PackageServiceProvider
     {
         $this->app->register(FilamentServiceProvider::class);
         $this->app->register(RouteServiceProvider::class);
+
+        $this->registerConfigs();
+    }
+
+    protected function registerConfigs(): self
+    {
+        $this->mergeConfigFrom(__DIR__.'/../config/filesystems_disks.php', 'filesystems.disks');
+
+        return $this;
     }
 }
