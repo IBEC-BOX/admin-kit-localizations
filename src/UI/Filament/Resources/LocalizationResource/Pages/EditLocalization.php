@@ -17,15 +17,6 @@ class EditLocalization extends EditRecord
         ];
     }
 
-    protected function mutateFormDataBeforeFill(array $data): array
-    {
-        foreach (config('admin-kit.locales') as $value) {
-            $data[$value] = $data['content'][$value];
-        }
-
-        return $data;
-    }
-
     protected function beforeSave()
     {
 
