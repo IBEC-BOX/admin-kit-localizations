@@ -2,9 +2,11 @@
 
 namespace AdminKit\Localizations\UI\Filament\Resources;
 
+use AdminKit\Core\Facades\AdminKit;
 use AdminKit\Localizations\Models\Localization;
 use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource\Pages;
 use Filament\Forms;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\Card;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -45,10 +47,17 @@ class LocalizationResource extends Resource
 
     public static function table(Table $table): Table
     {
+        $columns = [];
+        foreach (AdminKit::locales() as $locale) {
+            $columns[] = Tables\Columns\TextInputColumn::make("content.$locale")
+                ->getStateUsing(fn(Localization $record) => $record->getTranslation('content', $locale))
+                ->label($locale);
+        }
+
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('key')->label('Ключ')->searchable(),
-                Tables\Columns\TextColumn::make('content')->label('Значение'),
+                TextColumn::make('key')->label('Ключ')->searchable(),
+                ...$columns,
             ])
             ->filters([
                 //
