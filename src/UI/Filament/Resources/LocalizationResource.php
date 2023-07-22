@@ -44,16 +44,20 @@ class LocalizationResource extends Resource
     {
         $columns = [];
         foreach (AdminKit::locales() as $locale) {
-            $columns[] = Tables\Columns\TextInputColumn::make("content.$locale")
+            $columns[] = Tables\Columns\TextColumn::make("content.$locale")
                 ->getStateUsing(fn (Localization $record) => $record->getTranslation('content', $locale))
-                ->label($locale);
+                ->label($locale)
+                ->wrap();
         }
 
         return $table
             ->columns([
-                TextColumn::make('key')->label(__('admin-kit-localizations::localizations.resource.key'))->searchable(),
+                TextColumn::make('key')
+                    ->label(__('admin-kit-localizations::localizations.resource.key'))
+                    ->searchable(),
                 ...$columns,
             ])
+            ->defaultSort('id', 'desc')
             ->filters([
                 //
             ])

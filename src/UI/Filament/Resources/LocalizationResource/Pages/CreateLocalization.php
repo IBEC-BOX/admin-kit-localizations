@@ -2,6 +2,7 @@
 
 namespace AdminKit\Localizations\UI\Filament\Resources\LocalizationResource\Pages;
 
+use AdminKit\Core\Facades\AdminKit;
 use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource;
 use Filament\Resources\Pages\CreateRecord;
 
@@ -21,18 +22,24 @@ class CreateLocalization extends CreateRecord
         return LocalizationResource::getUrl();
     }
 
-    public function beforeCreate()
+    public function beforeCreate(): void
     {
-        foreach (config('admin-kit.locales') as $value) {
-            $file = lang_path($value.'.json');
-            if (! file_exists($file)) {
-                file_put_contents($file, json_encode([$this->data['key'] => $this->data['content'][$value]], JSON_UNESCAPED_UNICODE));
+        $this->updateLocalizationFile();
+    }
+
+    protected function updateLocalizationFile(): void
+    {
+        foreach (AdminKit::locales() as $locale) {
+            $key = $this->data['key'];
+            $value = $this->data['content'][$locale];
+            $path = lang_path($locale.'.json');
+
+            if (! file_exists($path)) {
+                file_put_contents($path, json_encode([$key => $value], JSON_UNESCAPED_UNICODE));
             } else {
-                $fileOpened = file_get_contents($file);
-                $fullData = json_decode($fileOpened);
-                $key = $this->data['key'];
-                $fullData->$key = $this->data['content'][$value];
-                file_put_contents($file, json_encode($fullData, JSON_UNESCAPED_UNICODE));
+                $jsonContent = json_decode(file_get_contents($path), true);
+                $jsonContent[$key] = $value;
+                file_put_contents($path, json_encode($jsonContent, JSON_UNESCAPED_UNICODE));
             }
         }
     }

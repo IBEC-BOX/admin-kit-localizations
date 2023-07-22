@@ -10,6 +10,10 @@ return [
 
         'created_at' => 'Created At',
         'updated_at' => 'Updated At',
+
+        'publish' => 'Publish',
+        'publish_action_tooltip' => 'When making changes, for example directly to the database, use this button',
+        'localization_files_saved' => 'Localization files saved successfully',
     ],
 
     'translation_file' => 'translation file',
