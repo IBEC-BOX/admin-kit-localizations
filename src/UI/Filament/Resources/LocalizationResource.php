@@ -34,8 +34,8 @@ class LocalizationResource extends Resource
                 Card::make([
                     Forms\Components\TextInput::make('key')
                         ->label(__('admin-kit-localizations::localizations.resource.key'))
-                        ->unique()
-                        ->regex('/^[a-z0-9]+(?:-[a-z0-9]+)*$/i')
+                        ->unique(ignoreRecord: true)
+                        ->regex('/^[a-z0-9]+(?:-[a-z0-9]+)*$/i') // slug
                         ->required(),
                 ]),
                 Card::make($keys),
@@ -47,7 +47,7 @@ class LocalizationResource extends Resource
         $columns = [];
         foreach (AdminKit::locales() as $locale) {
             $columns[] = Tables\Columns\TextColumn::make("content.$locale")
-                ->getStateUsing(fn (Localization $record) => $record->getTranslation('content', $locale))
+                ->getStateUsing(fn(Localization $record) => $record->getTranslation('content', $locale))
                 ->label($locale)
                 ->wrap();
         }

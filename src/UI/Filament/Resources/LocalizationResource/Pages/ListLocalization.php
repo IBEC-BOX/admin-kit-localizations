@@ -10,6 +10,7 @@ use Filament\Notifications\Notification;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class ListLocalization extends ListRecords
 {
@@ -42,15 +43,17 @@ class ListLocalization extends ListRecords
         foreach (AdminKit::locales() as $locale) {
             $path = lang_path("$locale.json");
             $jsonContent = $localizations
-                ->mapWithKeys(fn ($value, $key) => [$value->key => $value->getTranslation('content', $locale)])
+                ->mapWithKeys(fn($value, $key) => [$value->key => $value->getTranslation('content', $locale)])
                 ->toArray();
 
-            File::put($path, json_encode($jsonContent, JSON_UNESCAPED_UNICODE));
+            File::put($path, json_encode($jsonContent,   JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
         }
 
         Notification::make()
             ->title(__('admin-kit-localizations::localizations.resource.localization_files_saved'))
             ->success()
             ->send();
+
+        $this->emit('refreshLocalizationInformer'); // livewire event
     }
 }
