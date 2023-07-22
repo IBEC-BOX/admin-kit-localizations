@@ -39,7 +39,7 @@ class ListLocalization extends ListRecords
             ->select('key', 'content')
             ->orderBy('id')
             ->get();
-        foreach(AdminKit::locales() as $locale) {
+        foreach (AdminKit::locales() as $locale) {
             $path = lang_path("$locale.json");
             $jsonContent = $localizations
                 ->mapWithKeys(fn ($value, $key) => [$value->key => $value->getTranslation('content', $locale)])

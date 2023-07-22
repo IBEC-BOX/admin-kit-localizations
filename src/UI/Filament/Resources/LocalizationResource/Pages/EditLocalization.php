@@ -30,7 +30,6 @@ class EditLocalization extends EditRecord
             $value = $this->data['content'][$locale];
             $path = lang_path("$locale.json");
 
-
             if (! file_exists($path)) {
                 file_put_contents($path, json_encode([$key => $value], JSON_UNESCAPED_UNICODE));
             } else {
