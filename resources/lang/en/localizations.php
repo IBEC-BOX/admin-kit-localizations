@@ -12,7 +12,7 @@ return [
         'updated_at' => 'Updated At',
 
         'publish' => 'Publish',
-        'publish_action_tooltip' => 'When making changes, for example directly to the database, use this button',
+        'publish_action_tooltip' => 'To publish translations after making changes directly to the database, use this button',
         'localization_files_saved' => 'Localization files saved successfully',
     ],
 
