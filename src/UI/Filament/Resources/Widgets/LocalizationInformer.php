@@ -22,7 +22,7 @@ class LocalizationInformer extends TableWidget
             $exists[$locale] = File::exists($path);
 
             if ($exists[$locale]) {
-                $sizes[$locale] = number_format(File::size($path) / 1024, 2) . ' Kb';
+                $sizes[$locale] = number_format(File::size($path) / 1024, 2).' Kb';
             }
 
             if ($exists[$locale]) {

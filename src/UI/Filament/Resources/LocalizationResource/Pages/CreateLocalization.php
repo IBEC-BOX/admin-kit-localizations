@@ -35,11 +35,11 @@ class CreateLocalization extends CreateRecord
             $path = lang_path($locale.'.json');
 
             if (! file_exists($path)) {
-                file_put_contents($path, json_encode([$key => $value],   JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+                file_put_contents($path, json_encode([$key => $value], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
             } else {
                 $jsonContent = json_decode(file_get_contents($path), true);
                 $jsonContent[$key] = $value;
-                file_put_contents($path, json_encode($jsonContent,   JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+                file_put_contents($path, json_encode($jsonContent, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
             }
         }
     }
