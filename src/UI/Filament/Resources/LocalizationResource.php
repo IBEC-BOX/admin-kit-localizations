@@ -34,6 +34,8 @@ class LocalizationResource extends Resource
                 Card::make([
                     Forms\Components\TextInput::make('key')
                         ->label(__('admin-kit-localizations::localizations.resource.key'))
+                        ->unique()
+                        ->regex('/^[a-z0-9]+(?:-[a-z0-9]+)*$/i')
                         ->required(),
                 ]),
                 Card::make($keys),
