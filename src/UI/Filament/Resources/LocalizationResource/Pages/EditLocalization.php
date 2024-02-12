@@ -4,14 +4,14 @@ namespace AdminKit\Localizations\UI\Filament\Resources\LocalizationResource\Page
 
 use AdminKit\Core\Facades\AdminKit;
 use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource;
-use Filament\Pages\Actions;
+use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
 class EditLocalization extends EditRecord
 {
     protected static string $resource = LocalizationResource::class;
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\DeleteAction::make(),

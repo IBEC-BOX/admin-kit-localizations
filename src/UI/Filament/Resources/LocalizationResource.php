@@ -2,23 +2,22 @@
 
 namespace AdminKit\Localizations\UI\Filament\Resources;
 
+use Filament\Forms;
+use Filament\Tables;
+use Filament\Forms\Form;
+use Filament\Tables\Table;
+use Filament\Resources\Resource;
 use AdminKit\Core\Facades\AdminKit;
+use Filament\Tables\Columns\TextColumn;
 use AdminKit\Localizations\Models\Localization;
 use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource\Pages;
 use AdminKit\Localizations\UI\Filament\Resources\Widgets\LocalizationInformer;
-use Filament\Forms;
-use Filament\Forms\Components\Card;
-use Filament\Resources\Form;
-use Filament\Resources\Resource;
-use Filament\Resources\Table;
-use Filament\Tables;
-use Filament\Tables\Columns\TextColumn;
 
 class LocalizationResource extends Resource
 {
     protected static ?string $model = Localization::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
@@ -31,14 +30,14 @@ class LocalizationResource extends Resource
 
         return $form
             ->schema([
-                Card::make([
+                Forms\Components\Section::make('')->schema([
                     Forms\Components\TextInput::make('key')
                         ->label(__('admin-kit-localizations::localizations.resource.key'))
                         ->unique(ignoreRecord: true)
                         ->regex('/^[a-z0-9]+(?:-[a-z0-9]+)*$/i') // slug
                         ->required(),
                 ]),
-                Card::make($keys),
+                Forms\Components\Section::make('')->schema($keys),
             ]);
     }
 
@@ -47,7 +46,7 @@ class LocalizationResource extends Resource
         $columns = [];
         foreach (AdminKit::locales() as $locale) {
             $columns[] = Tables\Columns\TextColumn::make("content.$locale")
-                ->getStateUsing(fn (Localization $record) => $record->getTranslation('content', $locale))
+                ->getStateUsing(fn(Localization $record) => $record->getTranslation('content', $locale))
                 ->label($locale)
                 ->wrap();
         }
@@ -81,7 +80,7 @@ class LocalizationResource extends Resource
         return __('admin-kit-localizations::localizations.resource.plural_label');
     }
 
-    protected static function getNavigationGroup(): string
+    public static function getNavigationGroup(): string
     {
         return __('admin-kit-localizations::localizations.resource.plural_label');
     }

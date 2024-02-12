@@ -7,7 +7,7 @@ use AdminKit\Localizations\Models\Localization;
 use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource;
 use AdminKit\Localizations\UI\Filament\Resources\Widgets\LocalizationInformer;
 use Filament\Notifications\Notification;
-use Filament\Pages\Actions;
+use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 use Illuminate\Support\Facades\File;
 
@@ -22,7 +22,7 @@ class ListLocalization extends ListRecords
         ];
     }
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\Action::make('publish')
