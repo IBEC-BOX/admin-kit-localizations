@@ -6,8 +6,8 @@ use AdminKit\Core\Facades\AdminKit;
 use AdminKit\Localizations\Models\Localization;
 use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource;
 use AdminKit\Localizations\UI\Filament\Resources\Widgets\LocalizationInformer;
-use Filament\Notifications\Notification;
 use Filament\Actions;
+use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ListRecords;
 use Illuminate\Support\Facades\File;
 

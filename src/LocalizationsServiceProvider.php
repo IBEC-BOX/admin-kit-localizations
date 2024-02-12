@@ -2,10 +2,10 @@
 
 namespace AdminKit\Localizations;
 
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 use AdminKit\Localizations\Commands\LocalizationsCommand;
 use AdminKit\Localizations\Providers\RouteServiceProvider;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class LocalizationsServiceProvider extends PackageServiceProvider
 {
@@ -34,7 +34,7 @@ class LocalizationsServiceProvider extends PackageServiceProvider
 
     protected function registerConfigs(): self
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/filesystems_disks.php', 'filesystems.disks');
+        $this->mergeConfigFrom(__DIR__.'/../config/filesystems_disks.php', 'filesystems.disks');
 
         return $this;
     }

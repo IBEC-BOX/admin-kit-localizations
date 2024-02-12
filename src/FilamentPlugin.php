@@ -2,9 +2,9 @@
 
 namespace AdminKit\Localizations;
 
-use Filament\Panel;
-use Filament\Contracts\Plugin;
 use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource;
+use Filament\Contracts\Plugin;
+use Filament\Panel;
 
 class FilamentPlugin implements Plugin
 {
