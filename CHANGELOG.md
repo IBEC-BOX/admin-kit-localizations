@@ -2,6 +2,10 @@
 
 All notable changes to `admin-kit-localizations` will be documented in this file.
 
+## v3.0.0 - 2024-02-15
+
+Support filament v3!
+
 ## v3.0.1 - 2024-02-15
 
 **Full Changelog**: https://github.com/IBEC-BOX/admin-kit-localizations/compare/v3.0.0...v3.0.1
