@@ -16,7 +16,6 @@ return [
         'localization_files_saved' => 'Localization files saved successfully',
     ],
 
-    'translation_file' => 'translation file',
-    'count_keys' => 'has :count key|has :count keys',
+    'count_keys' => ':count key|:count keys',
     'not_created' => 'not created',
 ];

@@ -16,7 +16,6 @@ return [
         'localization_files_saved' => 'Файлы локализаций успешно сохранены',
     ],
 
-    'translation_file' => 'файл перевода',
-    'count_keys' => 'имеет :count ключ|имеет :count ключа|имеет :count ключей',
+    'count_keys' => ':count ключ|:count ключа|:count ключей',
     'not_created' => 'не создан',
 ];
