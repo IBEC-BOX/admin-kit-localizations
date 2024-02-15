@@ -2,15 +2,14 @@
 
 namespace AdminKit\Localizations\UI\Filament\Resources\LocalizationResource\Pages;
 
-use Filament\Actions;
-use Filament\Actions\Action;
 use AdminKit\Core\Facades\AdminKit;
-use Illuminate\Support\Facades\File;
-use Filament\Notifications\Notification;
-use Filament\Resources\Pages\ListRecords;
 use AdminKit\Localizations\Models\Localization;
 use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource;
 use AdminKit\Localizations\UI\Filament\Resources\Widgets\LocalizationInformer;
+use Filament\Actions;
+use Filament\Notifications\Notification;
+use Filament\Resources\Pages\ListRecords;
+use Illuminate\Support\Facades\File;
 
 class ListLocalization extends ListRecords
 {

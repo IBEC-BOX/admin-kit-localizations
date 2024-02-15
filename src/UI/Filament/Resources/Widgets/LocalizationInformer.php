@@ -2,8 +2,8 @@
 
 namespace AdminKit\Localizations\UI\Filament\Resources\Widgets;
 
-use Filament\Widgets\Widget;
 use AdminKit\Core\Facades\AdminKit;
+use Filament\Widgets\Widget;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -22,7 +22,7 @@ class LocalizationInformer extends Widget
             $exists[$locale] = File::exists($path);
 
             if ($exists[$locale]) {
-                $sizes[$locale] = number_format(File::size($path) / 1024, 2) . ' Kb';
+                $sizes[$locale] = number_format(File::size($path) / 1024, 2).' Kb';
             }
 
             if ($exists[$locale]) {
