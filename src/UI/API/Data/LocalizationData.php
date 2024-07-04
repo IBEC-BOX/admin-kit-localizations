@@ -3,10 +3,13 @@
 namespace AdminKit\Localizations\UI\API\Data;
 
 use AdminKit\Localizations\Models\Localization;
+use Spatie\LaravelData\Concerns\WithDeprecatedCollectionMethod;
 use Spatie\LaravelData\Data;
 
 class LocalizationData extends Data
 {
+    use WithDeprecatedCollectionMethod;
+
     public function __construct(
         public string $key,
         public array|string $content,
