@@ -2,6 +2,22 @@
 
 All notable changes to `admin-kit-localizations` will be documented in this file.
 
+## v3.1.0 - 2024-07-05
+
+### What's Changed
+
+* build(deps): bump aglipanci/laravel-pint-action from 2.3.0 to 2.3.1 by @dependabot in https://github.com/IBEC-BOX/admin-kit-localizations/pull/8
+* Feat/upgrade composer json file by @ast21 in https://github.com/IBEC-BOX/admin-kit-localizations/pull/9
+* feat: support laravel 11 by @ast21 in https://github.com/IBEC-BOX/admin-kit-localizations/pull/10
+* build(deps): bump dependabot/fetch-metadata from 1.6.0 to 2.1.0 by @dependabot in https://github.com/IBEC-BOX/admin-kit-localizations/pull/7
+* build(deps): bump ramsey/composer-install from 2 to 3 by @dependabot in https://github.com/IBEC-BOX/admin-kit-localizations/pull/6
+
+### New Contributors
+
+* @ast21 made their first contribution in https://github.com/IBEC-BOX/admin-kit-localizations/pull/9
+
+**Full Changelog**: https://github.com/IBEC-BOX/admin-kit-localizations/compare/v3.0.1...v3.1.0
+
 ## v3.0.0 - 2024-02-15
 
 Support filament v3!
