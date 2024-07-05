@@ -13,8 +13,7 @@ class LocalizationData extends Data
     public function __construct(
         public string $key,
         public array|string $content,
-    ) {
-    }
+    ) {}
 
     public static function fromModel(Localization $localization): LocalizationData
     {

@@ -2,6 +2,4 @@
 
 namespace AdminKit\Localizations;
 
-class Localizations
-{
-}
+class Localizations {}
