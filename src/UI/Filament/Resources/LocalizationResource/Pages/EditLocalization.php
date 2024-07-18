@@ -2,6 +2,7 @@
 
 namespace AdminKit\Localizations\UI\Filament\Resources\LocalizationResource\Pages;
 
+use AdminKit\Core\Traits\Filament\RedirectToListPageAfterSave;
 use AdminKit\Localizations\Traits\LocalizationFiles;
 use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource;
 use Filament\Actions;
@@ -10,6 +11,7 @@ use Filament\Resources\Pages\EditRecord;
 class EditLocalization extends EditRecord
 {
     use LocalizationFiles;
+    use RedirectToListPageAfterSave;
 
     protected static string $resource = LocalizationResource::class;
 

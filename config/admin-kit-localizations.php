@@ -2,5 +2,6 @@
 
 // config for AdminKit/Localizations
 return [
-    //
+    'disk' => 'localizations',
+    'path' => '{locale}.json',
 ];

@@ -4,18 +4,45 @@ declare(strict_types=1);
 
 namespace AdminKit\Localizations\UI\API\Controllers;
 
-use AdminKit\Localizations\Models\Localization;
+use AdminKit\Core\Facades\AdminKit;
 use AdminKit\Localizations\UI\API\Data\LocalizationData;
+use AdminKit\Localizations\UI\API\Data\LocalizationFullData;
+use AdminKit\Localizations\UI\API\Repositories\LocalizationRepositoryInterface;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use Spatie\LaravelData\DataCollection;
 
+/**
+ * @tags Локализация
+ */
 class LocalizationController extends Controller
 {
-    public function index()
+    public function __construct(
+        private readonly LocalizationRepositoryInterface $repository,
+    ) {}
+
+    /**
+     *  Получить все переводы
+     */
+    public function getFullList(Request $request)
     {
-        return LocalizationData::collection(Localization::all());
+        /** @deprecated in next major version, use `getLocaledList` */
+        if ($locale = $request->input('locale')) {
+            $request->validate([
+                'locale' => ['nullable', Rule::in(AdminKit::locales())],
+            ]);
+
+            return LocalizationData::collect($this->repository->getList($locale), DataCollection::class);
+        }
+
+        return LocalizationFullData::collect($this->repository->getFullList(), DataCollection::class);
     }
 
-    public function show(int $id)
+    /**
+     *  Получить переводы на нужном языке
+     */
+    public function getLocaledList($locale)
     {
-        return Localization::findOrFail($id);
+        return LocalizationData::collect($this->repository->getList($locale), DataCollection::class);
     }
 }
