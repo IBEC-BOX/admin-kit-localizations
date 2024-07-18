@@ -4,6 +4,9 @@ namespace AdminKit\Localizations;
 
 use AdminKit\Localizations\Commands\LocalizationsCommand;
 use AdminKit\Localizations\Providers\RouteServiceProvider;
+use AdminKit\Localizations\UI\API\Repositories\CachedLocalizationRepository;
+use AdminKit\Localizations\UI\API\Repositories\LocalizationRepository;
+use AdminKit\Localizations\UI\API\Repositories\LocalizationRepositoryInterface;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -30,6 +33,15 @@ class LocalizationsServiceProvider extends PackageServiceProvider
         $this->app->register(RouteServiceProvider::class);
 
         $this->registerConfigs();
+    }
+
+    public function bootingPackage()
+    {
+        $repository = match ((bool) config('admin-kit.cache.enabled')) {
+            true => CachedLocalizationRepository::class,
+            false => LocalizationRepository::class,
+        };
+        $this->app->bind(LocalizationRepositoryInterface::class, $repository);
     }
 
     protected function registerConfigs(): self
