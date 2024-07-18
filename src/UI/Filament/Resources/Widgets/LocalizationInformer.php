@@ -3,6 +3,7 @@
 namespace AdminKit\Localizations\UI\Filament\Resources\Widgets;
 
 use AdminKit\Core\Facades\AdminKit;
+use AdminKit\Localizations\Facades\Localizations;
 use Filament\Widgets\Widget;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\File;
@@ -18,7 +19,7 @@ class LocalizationInformer extends Widget
     {
         $exists = $sizes = $counts = [];
         foreach (AdminKit::locales() as $locale) {
-            $path = lang_path("$locale.json");
+            $path = Localizations::getPath($locale);
             $exists[$locale] = File::exists($path);
 
             if ($exists[$locale]) {

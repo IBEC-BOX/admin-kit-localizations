@@ -6,7 +6,7 @@ return [
      */
     'languages' => [
         'driver' => 'local',
-        'root' => lang_path(),
+        'root' => storage_path('localizations'),
         'throw' => false,
     ],
 ];

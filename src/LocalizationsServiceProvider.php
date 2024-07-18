@@ -37,6 +37,8 @@ class LocalizationsServiceProvider extends PackageServiceProvider
 
     public function bootingPackage()
     {
+        $this->publishFiles();
+
         $repository = match ((bool) config('admin-kit.cache.enabled')) {
             true => CachedLocalizationRepository::class,
             false => LocalizationRepository::class,
@@ -47,6 +49,17 @@ class LocalizationsServiceProvider extends PackageServiceProvider
     protected function registerConfigs(): self
     {
         $this->mergeConfigFrom(__DIR__.'/../config/filesystems_disks.php', 'filesystems.disks');
+
+        return $this;
+    }
+
+    protected function publishFiles(): self
+    {
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../stubs/.gitignore.stub' => storage_path('localizations/.gitignore'),
+            ], 'admin-kit-localizations-stubs');
+        }
 
         return $this;
     }

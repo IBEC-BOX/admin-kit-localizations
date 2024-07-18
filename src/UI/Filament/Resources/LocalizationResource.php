@@ -2,6 +2,7 @@
 
 namespace AdminKit\Localizations\UI\Filament\Resources;
 
+use AdminKit\Core\DTO\LocaleData;
 use AdminKit\Core\Facades\AdminKit;
 use AdminKit\Localizations\Models\Localization;
 use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource\Pages;
@@ -46,9 +47,8 @@ class LocalizationResource extends Resource
         $columns = [];
         foreach (AdminKit::locales() as $locale) {
             $columns[] = Tables\Columns\TextColumn::make("content.$locale")
-                ->getStateUsing(fn (Localization $record) => $record->getTranslation('content', $locale))
-                ->label($locale)
-                ->wrap();
+                ->getStateUsing(fn (Localization $record)  => $record->getTranslations('content')[$locale] ?? null)
+                ->label((new LocaleData($locale))->native);
         }
 
         return $table

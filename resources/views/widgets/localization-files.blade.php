@@ -8,19 +8,14 @@
                     <x-filament::icon-button
                             icon="heroicon-o-arrow-down-tray"
                             size="xl"
-                    >
-                        <x-slot name="badge">
-                            @if ($exists[$locale])
-                                {{$counts[$locale]}}
-                            @else
-                                {{__('admin-kit-localizations::localizations.not_created')}}
-                            @endif
-                        </x-slot>
-                    </x-filament::icon-button>
+                    />
+                    <span class="font-bold text-sm">{{$locale}}.json</span>
                     <span class="text-custom-400 text-xs" style="--c-400: var(--primary-400);">
                         {{$exists[$locale] ? $sizes[$locale] : '0.00 Kb'}}
                     </span>
-                    <span class="font-bold text-sm">{{$locale}}.json</span>
+                    <x-filament::badge>
+                        {{$exists[$locale] ? $counts[$locale] : __('admin-kit-localizations::localizations.not_created')}}
+                    </x-filament::badge>
                 </div>
             @endforeach
         </div>
