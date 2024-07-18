@@ -2,7 +2,7 @@
 
 namespace AdminKit\Localizations;
 
-use AdminKit\Localizations\Commands\LocalizationsCommand;
+use AdminKit\Localizations\Commands\InstallCommand;
 use AdminKit\Localizations\Providers\RouteServiceProvider;
 use AdminKit\Localizations\UI\API\Repositories\CachedLocalizationRepository;
 use AdminKit\Localizations\UI\API\Repositories\LocalizationRepository;
@@ -25,7 +25,7 @@ class LocalizationsServiceProvider extends PackageServiceProvider
             ->hasViews()
             ->hasTranslations()
             ->hasMigration('create_admin_kit_localizations_table')
-            ->hasCommand(LocalizationsCommand::class);
+            ->hasCommand(InstallCommand::class);
     }
 
     public function registeringPackage()

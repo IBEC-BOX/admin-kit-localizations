@@ -3,13 +3,14 @@
 namespace AdminKit\Localizations\UI\Filament\Resources\LocalizationResource\Pages;
 
 use AdminKit\Core\Facades\AdminKit;
+use AdminKit\Localizations\Facades\Localizations;
 use AdminKit\Localizations\Models\Localization;
 use AdminKit\Localizations\UI\Filament\Resources\LocalizationResource;
 use AdminKit\Localizations\UI\Filament\Resources\Widgets\LocalizationInformer;
 use Filament\Actions;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ListRecords;
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class ListLocalization extends ListRecords
 {
@@ -41,7 +42,8 @@ class ListLocalization extends ListRecords
             ->get();
 
         foreach (AdminKit::locales() as $locale) {
-            $path = lang_path("$locale.json");
+            $file = Storage::disk(config('admin-kit-localizations.disk'));
+            $path = Localizations::getPath($locale);
 
             $jsonContent = $localizations
                 ->mapWithKeys(fn ($value, $key) => [
@@ -49,7 +51,7 @@ class ListLocalization extends ListRecords
                 ])
                 ->toArray();
 
-            File::put($path, json_encode($jsonContent, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+            $file->put($path, json_encode($jsonContent, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
         }
 
         Notification::make()

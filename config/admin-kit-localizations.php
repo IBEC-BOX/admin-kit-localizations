@@ -2,5 +2,6 @@
 
 // config for AdminKit/Localizations
 return [
-    'path' => storage_path('localizations/{locale}.json'),
+    'disk' => 'localizations',
+    'path' => '{locale}.json',
 ];

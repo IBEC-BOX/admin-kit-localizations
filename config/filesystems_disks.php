@@ -2,9 +2,9 @@
 
 return [
     /**
-     * Custom filesystems.disks.languages config
+     * Custom filesystems.disks.localizations config
      */
-    'languages' => [
+    'localizations' => [
         'driver' => 'local',
         'root' => storage_path('localizations'),
         'throw' => false,

@@ -4,9 +4,9 @@ namespace AdminKit\Localizations\UI\Filament\Resources\Widgets;
 
 use AdminKit\Core\Facades\AdminKit;
 use AdminKit\Localizations\Facades\Localizations;
+use Filament\Notifications\Notification;
 use Filament\Widgets\Widget;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class LocalizationInformer extends Widget
@@ -19,15 +19,16 @@ class LocalizationInformer extends Widget
     {
         $exists = $sizes = $counts = [];
         foreach (AdminKit::locales() as $locale) {
+            $file = Storage::disk(config('admin-kit-localizations.disk'));
             $path = Localizations::getPath($locale);
-            $exists[$locale] = File::exists($path);
+            $exists[$locale] = $file->exists($path);
 
             if ($exists[$locale]) {
-                $sizes[$locale] = number_format(File::size($path) / 1024, 2).' Kb';
+                $sizes[$locale] = number_format($file->size($path) / 1024, 2).' Kb';
             }
 
             if ($exists[$locale]) {
-                $count = count(json_decode(File::get($path), true));
+                $count = count(json_decode($file->get($path), true));
                 $counts[$locale] = trans_choice(
                     'admin-kit-localizations::localizations.count_keys',
                     $count,
@@ -45,6 +46,19 @@ class LocalizationInformer extends Widget
 
     public function downloadTranslationFile($locale)
     {
-        return Storage::disk('languages')->download("$locale.json");
+        $file = Storage::disk(config('admin-kit-localizations.disk'));
+
+        $path = Localizations::getPath($locale);
+
+        if (! $file->exists($path)) {
+            Notification::make()
+                ->title(__('File not found'))
+                ->danger()
+                ->send();
+
+            return null;
+        }
+
+        return $file->download($path);
     }
 }
