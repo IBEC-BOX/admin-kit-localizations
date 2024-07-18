@@ -2,6 +2,17 @@
 
 All notable changes to `admin-kit-localizations` will be documented in this file.
 
+## v3.2.0 - 2024-07-18
+
+### What's Changed
+
+* build(deps): bump aglipanci/laravel-pint-action from 2.3.1 to 2.4 by @dependabot in https://github.com/IBEC-BOX/admin-kit-localizations/pull/12
+* Feat/add more features and fixes by @ast21 in https://github.com/IBEC-BOX/admin-kit-localizations/pull/13
+* build(deps): bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot in https://github.com/IBEC-BOX/admin-kit-localizations/pull/11
+* fix: use admin-kit-core v3.5 by @ast21 in https://github.com/IBEC-BOX/admin-kit-localizations/pull/14
+
+**Full Changelog**: https://github.com/IBEC-BOX/admin-kit-localizations/compare/v3.1.0...v3.2.0
+
 ## v3.1.0 - 2024-07-05
 
 ### What's Changed
