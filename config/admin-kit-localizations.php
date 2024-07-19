@@ -4,4 +4,6 @@
 return [
     'disk' => 'localizations',
     'path' => '{locale}.json',
+
+    'route_enabled' => true,
 ];
