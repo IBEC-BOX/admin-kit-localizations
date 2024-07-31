@@ -3,7 +3,6 @@
 namespace AdminKit\Localizations\UI\Filament\Filters;
 
 use AdminKit\Core\DTO\LocaleData;
-use AdminKit\Core\Facades\AdminKit;
 use Filament\Forms\Components\Select;
 use Filament\Tables\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;

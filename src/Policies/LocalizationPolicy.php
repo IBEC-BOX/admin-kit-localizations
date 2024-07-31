@@ -2,8 +2,8 @@
 
 namespace AdminKit\Localizations\Policies;
 
-use App\Models\AdminKitUser;
 use AdminKit\Localizations\Models\Localization;
+use App\Models\AdminKitUser;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class LocalizationPolicy
