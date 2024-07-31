@@ -2,6 +2,15 @@
 
 All notable changes to `admin-kit-localizations` will be documented in this file.
 
+## v3.3.0 - 2024-07-31
+
+### What's Changed
+
+* feat: add route_enabled config by @ast21 in https://github.com/IBEC-BOX/admin-kit-localizations/pull/15
+* Feat/admin UI by @ast21 in https://github.com/IBEC-BOX/admin-kit-localizations/pull/16
+
+**Full Changelog**: https://github.com/IBEC-BOX/admin-kit-localizations/compare/v3.2.0...v3.3.0
+
 ## v3.2.0 - 2024-07-18
 
 ### What's Changed
