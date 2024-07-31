@@ -4,9 +4,7 @@ namespace AdminKit\Localizations;
 
 use AdminKit\Localizations\Commands\InstallCommand;
 use AdminKit\Localizations\Providers\RouteServiceProvider;
-use AdminKit\Localizations\UI\API\Repositories\CachedLocalizationRepository;
-use AdminKit\Localizations\UI\API\Repositories\LocalizationRepository;
-use AdminKit\Localizations\UI\API\Repositories\LocalizationRepositoryInterface;
+use Illuminate\Support\Facades\Gate;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -39,11 +37,9 @@ class LocalizationsServiceProvider extends PackageServiceProvider
     {
         $this->publishFiles();
 
-        $repository = match ((bool) config('admin-kit.cache.enabled')) {
-            true => CachedLocalizationRepository::class,
-            false => LocalizationRepository::class,
-        };
-        $this->app->bind(LocalizationRepositoryInterface::class, $repository);
+        $this->bindingPolicies();
+
+        $this->bindingRepositories();
     }
 
     protected function registerConfigs(): self
@@ -62,5 +58,20 @@ class LocalizationsServiceProvider extends PackageServiceProvider
         }
 
         return $this;
+    }
+
+    protected function bindingPolicies(): void
+    {
+        Gate::policy(\AdminKit\Localizations\Models\Localization::class, \AdminKit\Localizations\Policies\LocalizationPolicy::class);
+    }
+
+    protected function bindingRepositories(): void
+    {
+        $repository = \AdminKit\Localizations\UI\API\Repositories\LocalizationRepository::class;
+        if (config('admin-kit.cache.enabled')) {
+            $repository = \AdminKit\Localizations\UI\API\Repositories\CachedLocalizationRepository::class;
+        }
+
+        $this->app->bind(\AdminKit\Localizations\UI\API\Repositories\LocalizationRepositoryInterface::class, $repository);
     }
 }
