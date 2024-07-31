@@ -4,7 +4,6 @@ namespace AdminKit\Localizations;
 
 use AdminKit\Localizations\Commands\InstallCommand;
 use AdminKit\Localizations\Providers\RouteServiceProvider;
-use Illuminate\Support\Facades\Gate;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -37,8 +36,6 @@ class LocalizationsServiceProvider extends PackageServiceProvider
     {
         $this->publishFiles();
 
-        $this->bindingPolicies();
-
         $this->bindingRepositories();
     }
 
@@ -58,11 +55,6 @@ class LocalizationsServiceProvider extends PackageServiceProvider
         }
 
         return $this;
-    }
-
-    protected function bindingPolicies(): void
-    {
-        Gate::policy(\AdminKit\Localizations\Models\Localization::class, \AdminKit\Localizations\Policies\LocalizationPolicy::class);
     }
 
     protected function bindingRepositories(): void
