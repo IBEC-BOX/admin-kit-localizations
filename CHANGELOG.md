@@ -2,6 +2,15 @@
 
 All notable changes to `admin-kit-localizations` will be documented in this file.
 
+## v3.3.1 - 2024-07-31
+
+### What's Changed
+
+* Feat/policy by @ast21 in https://github.com/IBEC-BOX/admin-kit-localizations/pull/17
+* refactor: no needed register policy by @ast21 in https://github.com/IBEC-BOX/admin-kit-localizations/pull/18
+
+**Full Changelog**: https://github.com/IBEC-BOX/admin-kit-localizations/compare/v3.3.0...v3.3.1
+
 ## v3.3.0 - 2024-07-31
 
 ### What's Changed
