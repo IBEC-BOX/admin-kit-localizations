@@ -42,6 +42,6 @@ class Localization extends AbstractModel
 
     protected static function newFactory(): LocalizationFactory
     {
-        return new LocalizationFactory();
+        return new LocalizationFactory;
     }
 }
