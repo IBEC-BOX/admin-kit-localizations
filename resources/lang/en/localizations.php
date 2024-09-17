@@ -4,6 +4,7 @@ return [
     'resource' => [
         'label' => 'Localization',
         'plural_label' => 'Localizations',
+        'navigation_group' => 'Localizations',
 
         'id' => 'ID',
         'key' => 'Key',

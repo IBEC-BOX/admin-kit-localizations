@@ -6,4 +6,6 @@ return [
     'path' => '{locale}.json',
 
     'route_enabled' => true,
+
+    'navigation_group_enabled' => false,
 ];
