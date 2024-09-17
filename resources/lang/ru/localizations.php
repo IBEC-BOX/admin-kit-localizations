@@ -4,6 +4,7 @@ return [
     'resource' => [
         'label' => 'Локализация',
         'plural_label' => 'Локализации',
+        'navigation_group' => 'Локализации',
 
         'id' => 'ID',
         'key' => 'Ключ',

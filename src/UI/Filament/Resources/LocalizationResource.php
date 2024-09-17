@@ -101,9 +101,13 @@ class LocalizationResource extends Resource
         return __('admin-kit-localizations::localizations.resource.plural_label');
     }
 
-    public static function getNavigationGroup(): string
+    public static function getNavigationGroup(): ?string
     {
-        return __('admin-kit-localizations::localizations.resource.plural_label');
+        if (! config('admin-kit-localizations.navigation_group_enabled')) {
+            return null;
+        }
+
+        return __('admin-kit-localizations::localizations.resource.navigation_group');
     }
 
     public static function getRelations(): array
