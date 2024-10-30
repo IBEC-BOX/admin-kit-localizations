@@ -2,6 +2,14 @@
 
 All notable changes to `admin-kit-localizations` will be documented in this file.
 
+## v3.3.3 - 2024-10-30
+
+### What's Changed
+
+* fix: nullable content by @ast21 in https://github.com/IBEC-BOX/admin-kit-localizations/pull/20
+
+**Full Changelog**: https://github.com/IBEC-BOX/admin-kit-localizations/compare/v3.3.2...v3.3.3
+
 ## v3.3.2 - 2024-09-17
 
 ### What's Changed
