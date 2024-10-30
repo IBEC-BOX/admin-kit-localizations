@@ -8,6 +8,6 @@ class LocalizationData extends Data
 {
     public function __construct(
         public string $key,
-        public string $content,
+        public ?string $content,
     ) {}
 }
